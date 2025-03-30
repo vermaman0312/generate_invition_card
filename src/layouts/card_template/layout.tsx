@@ -13,7 +13,6 @@ type props = {
 
 const GenerateCardLayout = ({ ...props }: props) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   const downloadImage = async () => {
     if (cardRef.current) {
@@ -55,7 +54,6 @@ const GenerateCardLayout = ({ ...props }: props) => {
       domToImage
         .toPng(cardRef.current)
         .then((dataUrl) => {
-          setImageUrl(dataUrl);
           sendToWhatsApp(dataUrl);
         })
         .catch((error) => console.error("Error generating image:", error));
@@ -102,7 +100,7 @@ const GenerateCardLayout = ({ ...props }: props) => {
         <div className="absolute w-full h-36 flex flex-col items-center justify-center top-[25.5rem]">
           {staticData["hi-IN"].events.map((event, index) => {
             return (
-              <div className="w-full flex flex-col items-center justify-center">
+              <div key={index} className="w-full flex flex-col items-center justify-center">
                 <Label className="text-md font-normal underline text-green-600 text-center px-8">
                   {`${event.day} - ${event.date}`}
                 </Label>
