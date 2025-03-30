@@ -77,7 +77,6 @@ const WelcomeLayout = ({ ...props }: props) => {
           >
             View
           </Button>
-          <Button>Send</Button>
         </div>
       </div>
     </div>
