@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import blank_card from "../../assets/blank_card.png";
 import Label from "../../components/label/component";
 import Button from "../../components/button/component";
